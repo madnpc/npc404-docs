@@ -5,6 +5,8 @@ argument-hint: "What will the next session be used for?"
 disable-model-invocation: true
 ---
 
+默认使用简体中文与用户沟通，并以简体中文编写交接文档。用户明确指定其他语言或既有文档语言另有约定时，遵从该约定；代码、命令、产品名和必须保持原文的引用不强行翻译。
+
 Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
 
 Include a "suggested skills" section in the document, which suggests skills that the agent should invoke.

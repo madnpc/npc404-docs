@@ -7,6 +7,10 @@ description: "适用于根因不明确、反复出现、不稳定、跨组件或
 
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
+## 输出语言
+
+默认使用简体中文与用户沟通，并以简体中文编写诊断记录和结论。用户明确指定其他语言或既有文档语言另有约定时，遵从该约定；代码、命令、产品名和必须保持原文的引用不强行翻译。
+
 When exploring the codebase, read `CONTEXT.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
 
 ## Quick triage

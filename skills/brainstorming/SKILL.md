@@ -7,6 +7,10 @@ description: "适用于编写代码前，当需求或方向仍不清楚时，梳
 
 Turn an unclear request into a shared decision and a concise decision spec.
 
+## 输出语言
+
+默认使用简体中文与用户沟通，并以简体中文编写决策文档。用户明确指定其他语言或既有文档语言另有约定时，遵从该约定；代码、命令、产品名和必须保持原文的引用不强行翻译。
+
 ## Scope
 
 Do only these things:

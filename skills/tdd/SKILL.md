@@ -5,6 +5,10 @@ description: "适用于以测试先行方式实现或修复高风险行为，尤
 
 # Test-Driven Development
 
+## 输出语言
+
+默认使用简体中文与用户沟通，并以简体中文编写测试策略、测试说明和实现总结。用户明确指定其他语言或既有文档语言另有约定时，遵从该约定；代码、命令、产品名和必须保持原文的引用不强行翻译。
+
 ## Philosophy
 
 **Core principle**: Tests should verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't.
