@@ -1,6 +1,6 @@
 ---
 name: karpathy-guidelines
-description: "适用于编码、审查或重构时避免过度设计、坚持最小改动并明确验收条件。Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria. 中文关键词：编码原则、避免过度设计、最小改动、明确假设、验收标准、代码审查、重构。"
+description: "适用于代码改动容易过度设计、范围蔓延或需要严格审查时。Use when a code change risks overengineering, scope creep, broad refactors, or needs a conservative review for surgical changes and verifiable success criteria. 中文关键词：避免过度设计、最小改动、范围控制、明确假设、验收标准、保守审查、重构审查。"
 license: MIT
 ---
 

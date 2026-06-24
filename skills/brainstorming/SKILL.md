@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "适用于编写代码前梳理模糊想法、比较方案并形成设计文档。Activates before writing code. Refines rough ideas through questions, explores alternatives, presents design in sections for validation, and saves a design document. 中文关键词：想法不清楚、需求澄清、方案发散、方案对比、取舍分析、决策、规格说明。"
+description: "适用于编写代码前，当需求或方向仍不清楚时，梳理模糊想法、比较方案并形成轻量设计文档。Use before implementation when the request is ambiguous or the direction is undecided: refine rough ideas through questions, explore alternatives, validate design sections with the user, and save a concise decision spec. Do not create implementation plans or invoke planning/execution skills automatically. 中文关键词：想法不清楚、需求澄清、方案发散、方案对比、取舍分析、决策、设计文档、决策依据。"
 ---
 
 # Brainstorming
