@@ -1,13 +1,24 @@
-# npc404-docs
+# npc404 Skills
 
-《末日NPC都不太正常》的文档仓库。
+《末日NPC都不太正常》的项目级 Agent Skills 仓库。这里仅维护可复用的工作流技能；每个技能都位于 `skills/<skill-name>/SKILL.md`，并通过 front matter 的 description 提供中英文触发关键词。
 
-本仓库用于保存项目方案、技术设计、玩法规格、剧情设定、内容规范和阶段计划。代码实现分别放在：
+## Agent skills
 
-- `npc404`: 游戏服务、规则核心、Agent Worker、数据库和共享协议。
-- `npc404-web`: 玩家端和后续管理端 Web 应用。
-- `npc404-docs`: 文档、方案和内容草案。
+[`skills/`](skills/) 保存供协作代理调用的本地技能引用；它们是工作流约束和方法论，不是游戏设计文档。
 
-## 当前文档
+| 技能 | 适用时机与中文关键词 | 主要参考 |
+| --- | --- | --- |
+| `brainstorming` | 需求或方案尚不清楚；确认后产出决策 spec：想法不清楚、需求探索、需求澄清、功能设计、方案设计、规格说明。 | [obra/superpowers](https://github.com/obra/superpowers/tree/main) |
+| `codebase-design` | 方向明确后设计模块边界与接口：代码库设计、模块设计、接口设计、模块边界、可测试性。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
+| `planning-with-files-zh` | 复杂实施或跨会话工作：任务规划、复杂实现、实施计划、多步骤规划、进度跟踪。 | [othmanadi/planning-with-files](https://github.com/othmanadi/planning-with-files) |
+| `diagnosing-bugs` | 故障与性能问题诊断：修 Bug、排查问题、报错、测试失败、性能回归。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
+| `tdd` | 高风险逻辑或需要回归保护的改动：测试驱动开发、先写测试、红绿重构、回归测试、集成测试。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
+| `handoff` | 将未完成工作移交给新的代理或会话：工作交接、上下文交接、任务移交。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
 
-- [proposals/technical-proposal-v0.2.md](proposals/technical-proposal-v0.2.md): 第一版可开工技术基线。
+### 引用来源
+
+本目录的技能以这些开源项目为参考与改编来源；修改本地版本时，应保留归属并在需要时对照上游更新。
+
+- [obra/superpowers](https://github.com/obra/superpowers/tree/main)
+- [mattpocock/skills](https://github.com/mattpocock/skills)
+- [othmanadi/planning-with-files](https://github.com/othmanadi/planning-with-files)
