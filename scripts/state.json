@@ -1,0 +1,51 @@
+{
+  "brainstorming": {
+    "repo": "obra/superpowers",
+    "lastCommit": "29c0b1b7db4b8ab488c7ef99bef93068576a60fa",
+    "lastSyncedAt": "2026-06-17T00:02:33Z",
+    "pendingCommit": null,
+    "pendingDate": null
+  },
+  "codebase-design": {
+    "repo": "mattpocock/skills",
+    "lastCommit": "ee8bae40062cd6b435073368ed0c540f48c35862",
+    "lastSyncedAt": "2026-06-17T14:15:11Z",
+    "pendingCommit": null,
+    "pendingDate": null
+  },
+  "diagnosing-bugs": {
+    "repo": "mattpocock/skills",
+    "lastCommit": "ee8bae40062cd6b435073368ed0c540f48c35862",
+    "lastSyncedAt": "2026-06-17T14:15:11Z",
+    "pendingCommit": null,
+    "pendingDate": null
+  },
+  "tdd": {
+    "repo": "mattpocock/skills",
+    "lastCommit": "ee8bae40062cd6b435073368ed0c540f48c35862",
+    "lastSyncedAt": "2026-06-17T14:15:11Z",
+    "pendingCommit": null,
+    "pendingDate": null
+  },
+  "handoff": {
+    "repo": "mattpocock/skills",
+    "lastCommit": "221ffca96736afefdc08ca7cf0b3965e9ea83f41",
+    "lastSyncedAt": "2026-06-12T08:25:19Z",
+    "pendingCommit": null,
+    "pendingDate": null
+  },
+  "karpathy-guidelines": {
+    "repo": "multica-ai/andrej-karpathy-skills",
+    "lastCommit": "64723a49ea6117894304eb491f0d32a60570bf45",
+    "lastSyncedAt": "2026-01-28T00:40:04Z",
+    "pendingCommit": null,
+    "pendingDate": null
+  },
+  "planning-with-files-zh": {
+    "repo": "othmanadi/planning-with-files",
+    "lastCommit": "8f5a3c2e1c347635cf94debde033b3c1ac97e4ab",
+    "lastSyncedAt": "2026-06-16T15:16:10Z",
+    "pendingCommit": null,
+    "pendingDate": null
+  }
+}

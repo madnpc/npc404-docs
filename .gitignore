@@ -1,0 +1,77 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testing
+coverage
+*.log
+.nyc_output
+
+# Next.js
+.next
+out
+dist
+build
+
+# Turborepo
+.turbo
+
+# Production
+next-env.d.ts
+
+# Environment variables
+.env
+.env*.local
+!.env.example
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+*.pem
+Thumbs.db
+ehthumbs.db
+
+# IDE
+.idea
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.windsurf/
+.windsurfrules
+.codex/
+.agents/
+.gstack/
+.worktrees/
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# Bundle analyzer
+.next/analyze
+
+# Local development
+.env.local
+
+# Skill upstream sync: state.json is the only tracked artifact; .skill-sync/ is scratch
+scripts/.skill-sync/
+
+docs/specs/**
+docs/.planning/**
+.codegraph/

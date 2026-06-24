@@ -24,3 +24,16 @@
 - [mattpocock/skills](https://github.com/mattpocock/skills)
 - [othmanadi/planning-with-files](https://github.com/othmanadi/planning-with-files)
 - [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
+
+### 保持与上游同步
+
+[`scripts/sync-skills.mjs`](scripts/sync-skills.mjs) 用来检测上述上游源文件是否更新。只有上游版本（对应目录的最新 commit SHA）变化时才提示，并把上游 diff 暂存好，供人手动重新本地化（中文改写）。脚本本身不调用 AI、不自动改写 `skills/`、不自动提交；零依赖，需 Node 18+。
+
+```bash
+node scripts/sync-skills.mjs check       # 检测上游变化（默认），变了就暂存 diff
+node scripts/sync-skills.mjs status      # 查看各技能当前版本与待办
+node scripts/sync-skills.mjs accept <skill|--all>  # 本地化完成后推进版本号
+node scripts/sync-skills.mjs init [skill]          # 首次/新增技能时记录当前上游版本
+```
+
+典型流程：`check` 看哪些技能上游变了（diff 在 `scripts/.skill-sync/diffs/`）→ 对照 diff 把变更重新本地化写回 `skills/<skill>/` → `accept` 锁定版本。映射关系配置在 [`scripts/sync.config.json`](scripts/sync.config.json)，版本记录在 `scripts/state.json`（唯一需提交的产物）。详见 [`scripts/README.md`](scripts/README.md)。

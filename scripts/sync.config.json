@@ -1,0 +1,75 @@
+{
+  "$schema": "./sync.config.schema.note",
+  "_comment": "本地技能 <-> 上游源的文件级映射。version = upstreamDir 上的最新 commit SHA。改 files 即可增删被跟踪的本地化文件。",
+  "skills": {
+    "brainstorming": {
+      "repo": "obra/superpowers",
+      "branch": "main",
+      "upstreamDir": "skills/brainstorming",
+      "localDir": "skills/brainstorming",
+      "files": [
+        "SKILL.md",
+        "spec-document-reviewer-prompt.md"
+      ]
+    },
+    "codebase-design": {
+      "repo": "mattpocock/skills",
+      "branch": "main",
+      "upstreamDir": "skills/engineering/codebase-design",
+      "localDir": "skills/codebase-design",
+      "files": [
+        "SKILL.md",
+        "DEEPENING.md",
+        "DESIGN-IT-TWICE.md"
+      ]
+    },
+    "diagnosing-bugs": {
+      "repo": "mattpocock/skills",
+      "branch": "main",
+      "upstreamDir": "skills/engineering/diagnosing-bugs",
+      "localDir": "skills/diagnosing-bugs",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    "tdd": {
+      "repo": "mattpocock/skills",
+      "branch": "main",
+      "upstreamDir": "skills/engineering/tdd",
+      "localDir": "skills/tdd",
+      "files": [
+        "SKILL.md",
+        "mocking.md",
+        "refactoring.md",
+        "tests.md"
+      ]
+    },
+    "handoff": {
+      "repo": "mattpocock/skills",
+      "branch": "main",
+      "upstreamDir": "skills/productivity/handoff",
+      "localDir": "skills/handoff",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    "karpathy-guidelines": {
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "branch": "main",
+      "upstreamDir": "skills/karpathy-guidelines",
+      "localDir": "skills/karpathy-guidelines",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    "planning-with-files-zh": {
+      "repo": "othmanadi/planning-with-files",
+      "branch": "master",
+      "upstreamDir": "skills/planning-with-files-zh",
+      "localDir": "skills/planning-with-files-zh",
+      "files": [
+        "SKILL.md"
+      ]
+    }
+  }
+}
