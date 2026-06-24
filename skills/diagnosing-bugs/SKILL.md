@@ -1,6 +1,6 @@
 ---
 name: diagnosing-bugs
-description: "Use when a bug, test failure, runtime error, unexpected behavior, or performance regression has an unclear root cause, recurs, is nondeterministic, or spans components. 中文关键词：修 Bug、排查问题、诊断故障、根因不明确、反复出现、报错、测试失败、异常行为、性能回归。"
+description: "适用于根因不明确、反复出现、不稳定、跨组件或性能退化的故障。Use when a bug, test failure, runtime error, unexpected behavior, or performance regression has an unclear root cause, recurs, is nondeterministic, or spans components. 中文关键词：修 Bug、排查问题、诊断故障、根因不明确、反复出现、报错、测试失败、异常行为、性能回归。"
 ---
 
 # Diagnosing Bugs

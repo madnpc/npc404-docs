@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: "Use when implementing or repairing high-risk behavior test-first, especially core rules, regressions, integration paths, or changes that require red-green-refactor. 中文关键词：高风险逻辑、测试驱动开发、先写测试、红绿重构、回归测试、集成测试、核心规则。"
+description: "适用于以测试先行方式实现或修复高风险行为，尤其是核心规则、回归与集成路径。Use when implementing or repairing high-risk behavior test-first, especially core rules, regressions, integration paths, or changes that require red-green-refactor. 中文关键词：高风险逻辑、测试驱动开发、先写测试、红绿重构、回归测试、集成测试、核心规则。"
 ---
 
 # Test-Driven Development

@@ -1,6 +1,6 @@
 ---
 name: codebase-design
-description: "Use when designing or improving module interfaces, deciding where a seam belongs, deepening a module, or improving testability and AI navigability. 中文关键词：代码库设计、模块设计、接口设计、模块边界、依赖边界、可测试性、代码重构。"
+description: "适用于设计或优化模块接口、决定 seam、提升模块深度与可测试性。Use when designing or improving module interfaces, deciding where a seam belongs, deepening a module, or improving testability and AI navigability. 中文关键词：代码库设计、模块设计、接口设计、模块边界、依赖边界、可测试性、代码重构。"
 ---
 
 # Codebase Design

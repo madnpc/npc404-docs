@@ -1,6 +1,6 @@
 ---
 name: planning-with-files-zh
-description: "Use when work needs durable planning, coordination, or progress tracking across multiple steps or sessions. 中文关键词：任务规划、项目计划、制定计划、分解任务、多步骤规划、复杂实现、复杂任务、实施计划、进度跟踪、文件规划、帮我规划、拆解项目。"
+description: "适用于需要跨会话持久追踪的复杂任务、研究或多阶段实施。Use when work needs durable planning, coordination, or progress tracking across multiple steps or sessions. 中文关键词：任务规划、项目计划、制定计划、分解任务、多步骤规划、复杂实现、复杂任务、实施计划、进度跟踪、文件规划、帮我规划、拆解项目。"
 metadata:
 
   version: "3.1.3-npc404.1"

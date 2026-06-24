@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "Use when the goal, requirements, or preferred direction are unclear and a decision spec is needed before implementation. 中文关键词：想法不清楚、需求澄清、方案发散、方案对比、取舍分析、决策、规格说明。"
+description: "适用于编写代码前梳理模糊想法、比较方案并形成设计文档。Activates before writing code. Refines rough ideas through questions, explores alternatives, presents design in sections for validation, and saves a design document. 中文关键词：想法不清楚、需求澄清、方案发散、方案对比、取舍分析、决策、规格说明。"
 ---
 
 # Brainstorming
@@ -36,6 +36,16 @@ The only project file this skill may create or edit is the decision spec describ
 3. Offer 2–3 viable directions only when a real choice remains. For each, explain the primary benefit, primary cost, and the condition under which it is the better choice.
 4. Recommend one direction, or explicitly say that the decision needs more information. Do not invent certainty.
 5. Iterate until the user confirms a direction or asks to stop.
+
+## Design validation
+
+Before writing the spec, present the design in small sections and validate each section with the user:
+
+1. **Scope and outcome** — the goal, success criteria, and exclusions.
+2. **Design and behavior** — the chosen direction, user-visible behavior, and constraints.
+3. **Trade-offs and risks** — alternatives rejected, accepted costs, and unresolved questions.
+
+Revise any section the user does not validate. Do not proceed to the spec until the design is confirmed.
 
 ## Spec
 
