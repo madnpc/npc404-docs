@@ -1,6 +1,6 @@
 ---
 name: diagnosing-bugs
-description: "Use when a bug, test failure, runtime error, unexpected behavior, or performance regression needs diagnosis. 中文关键词：修 Bug、排查问题、诊断故障、报错、测试失败、异常行为、性能回归。"
+description: "Use when a bug, test failure, runtime error, unexpected behavior, or performance regression has an unclear root cause, recurs, is nondeterministic, or spans components. 中文关键词：修 Bug、排查问题、诊断故障、根因不明确、反复出现、报错、测试失败、异常行为、性能回归。"
 ---
 
 # Diagnosing Bugs
@@ -8,6 +8,12 @@ description: "Use when a bug, test failure, runtime error, unexpected behavior, 
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
+
+## Quick triage
+
+Do not start the full loop for an immediately evident, single-line error when one surgical correction has an obvious verification command. Make that minimal correction and run the verification.
+
+Use the full loop below when the correction fails, the root cause is uncertain, the problem recurs or flakes, the symptom crosses component boundaries, or performance regresses. Do not guess once those conditions apply.
 
 ## Phase 1 — Build a feedback loop
 
