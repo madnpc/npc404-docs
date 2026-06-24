@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | `brainstorming` | 需求或方案尚不清楚；确认后产出决策 spec：想法不清楚、需求探索、需求澄清、功能设计、方案设计、规格说明。 | [obra/superpowers](https://github.com/obra/superpowers/tree/main) |
 | `codebase-design` | 方向明确后设计模块边界与接口：代码库设计、模块设计、接口设计、模块边界、可测试性。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
-| `planning-with-files-zh` | 复杂实施或跨会话工作：任务规划、复杂实现、实施计划、多步骤规划、进度跟踪。 | [othmanadi/planning-with-files](https://github.com/othmanadi/planning-with-files) |
+| `planning-with-files-zh` | 复杂实施或跨会话工作；规划保存于 `docs/.planning/<plan-id>/`：任务规划、复杂实现、实施计划、多步骤规划、进度跟踪。 | [othmanadi/planning-with-files](https://github.com/othmanadi/planning-with-files) |
 | `diagnosing-bugs` | 故障与性能问题诊断：修 Bug、排查问题、报错、测试失败、性能回归。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
 | `tdd` | 高风险逻辑或需要回归保护的改动：测试驱动开发、先写测试、红绿重构、回归测试、集成测试。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
 | `handoff` | 将未完成工作移交给新的代理或会话：工作交接、上下文交接、任务移交。 | [mattpocock/skills](https://github.com/mattpocock/skills) |

@@ -1,125 +1,88 @@
-# 初始化新会话的规划文件
-# 用法：.\init-session.ps1 [项目名称]
+# Initialize one scoped planning workspace under docs/.planning/<plan-id>/.
+# Usage: .\init-session.ps1 [-ProjectName <name>] [-Autonomous] [-Gated]
 
 param(
-    [string]$ProjectName = "project"
+    [string]$ProjectName = "untitled",
+    [string]$Template = "default",
+    [switch]$Autonomous,
+    [switch]$Gated
 )
 
-$DATE = Get-Date -Format "yyyy-MM-dd"
+$ErrorActionPreference = "Stop"
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$SkillRoot = Split-Path -Parent $ScriptDir
+$TemplateDir = Join-Path $SkillRoot "templates"
+$PlanRoot = Join-Path (Get-Location) "docs/.planning"
+$Date = Get-Date -Format "yyyy-MM-dd"
 
-Write-Host "正在初始化规划文件：$ProjectName"
-New-Item -ItemType Directory -Force -Path "docs" | Out-Null
-
-# 如果 docs/task_plan.md 不存在则创建
-if (-not (Test-Path "docs/task_plan.md")) {
-    @"
-# 任务计划：[简要描述]
-
-## 目标
-[用一句话描述最终状态]
-
-## 当前阶段
-阶段 1
-
-## 各阶段
-
-### 阶段 1：需求与发现
-- [ ] 理解用户意图
-- [ ] 确定约束条件和需求
-- [ ] 将发现记录到 docs/findings.md
-- **状态：** in_progress
-
-### 阶段 2：规划与结构
-- [ ] 确定技术方案
-- [ ] 如有需要创建项目结构
-- [ ] 记录决策及理由
-- **状态：** pending
-
-### 阶段 3：实现
-- [ ] 按计划逐步执行
-- [ ] 先将代码写入文件再执行
-- [ ] 增量测试
-- **状态：** pending
-
-### 阶段 4：测试与验证
-- [ ] 验证所有需求已满足
-- [ ] 将测试结果记录到 docs/progress.md
-- [ ] 修复发现的问题
-- **状态：** pending
-
-### 阶段 5：交付
-- [ ] 检查所有输出文件
-- [ ] 确保交付物完整
-- [ ] 交付给用户
-- **状态：** pending
-
-## 已做决策
-| 决策 | 理由 |
-|------|------|
-
-## 遇到的错误
-| 错误 | 解决方案 |
-|------|---------|
-"@ | Out-File -FilePath "docs/task_plan.md" -Encoding UTF8
-    Write-Host "已创建 docs/task_plan.md"
-} else {
-    Write-Host "docs/task_plan.md 已存在，跳过"
+if ($Template -ne "default") {
+    Write-Warning "Only the default template is bundled; using it instead of '$Template'."
 }
 
-# 如果 docs/findings.md 不存在则创建
-if (-not (Test-Path "docs/findings.md")) {
-    @"
-# 发现与决策
+function ConvertTo-PlanSlug {
+    param([string]$Name)
 
-## 需求
--
-
-## 研究发现
--
-
-## 技术决策
-| 决策 | 理由 |
-|------|------|
-
-## 遇到的问题
-| 问题 | 解决方案 |
-|------|---------|
-
-## 资源
--
-"@ | Out-File -FilePath "docs/findings.md" -Encoding UTF8
-    Write-Host "已创建 docs/findings.md"
-} else {
-    Write-Host "docs/findings.md 已存在，跳过"
+    $slug = $Name.ToLowerInvariant() -replace "[^a-z0-9]+", "-"
+    $slug = $slug.Trim("-")
+    if ([string]::IsNullOrWhiteSpace($slug)) {
+        $slug = "untitled-" + [guid]::NewGuid().ToString("N").Substring(0, 8)
+    }
+    return $slug.Substring(0, [Math]::Min($slug.Length, 40))
 }
 
-# 如果 docs/progress.md 不存在则创建
-if (-not (Test-Path "docs/progress.md")) {
-    @"
-# 进度日志
-
-## 会话：$DATE
-
-### 当前状态
-- **阶段：** 1 - 需求与发现
-- **开始时间：** $DATE
-
-### 已执行操作
--
-
-### 测试结果
-| 测试 | 预期 | 实际 | 状态 |
-|------|------|------|------|
-
-### 错误
-| 错误 | 解决方案 |
-|------|---------|
-"@ | Out-File -FilePath "docs/progress.md" -Encoding UTF8
-    Write-Host "已创建 docs/progress.md"
-} else {
-    Write-Host "docs/progress.md 已存在，跳过"
+$BaseId = "$Date-$(ConvertTo-PlanSlug $ProjectName)"
+$PlanId = $BaseId
+$Suffix = 2
+while (Test-Path (Join-Path $PlanRoot $PlanId)) {
+    $PlanId = "$BaseId-$Suffix"
+    $Suffix++
 }
 
-Write-Host ""
-Write-Host "规划文件已初始化！"
-Write-Host "文件：docs/task_plan.md, docs/findings.md, docs/progress.md"
+$PlanDir = Join-Path $PlanRoot $PlanId
+New-Item -ItemType Directory -Path $PlanDir -Force | Out-Null
+
+function Initialize-PlanFile {
+    param([string]$FileName, [string]$Fallback)
+
+    $Target = Join-Path $PlanDir $FileName
+    if (Test-Path -LiteralPath $Target) {
+        Write-Host "$Target already exists; skipping"
+        return
+    }
+
+    $Source = Join-Path $TemplateDir $FileName
+    if (Test-Path -LiteralPath $Source) {
+        Copy-Item -LiteralPath $Source -Destination $Target
+    } else {
+        Set-Content -LiteralPath $Target -Value $Fallback -Encoding utf8
+    }
+    Write-Host "Created $Target"
+}
+
+Initialize-PlanFile "task_plan.md" "# Task Plan`n`n## Goal`n[Describe the intended end state]"
+Initialize-PlanFile "findings.md" "# Findings`n"
+Initialize-PlanFile "progress.md" "# Progress Log`n"
+Set-Content -LiteralPath (Join-Path $PlanRoot ".active_plan") -Value $PlanId -NoNewline -Encoding ascii
+
+$Attest = Join-Path $ScriptDir "attest-plan.ps1"
+if (Test-Path -LiteralPath $Attest) {
+    $PreviousPlanId = $env:PLAN_ID
+    $env:PLAN_ID = $PlanId
+    try { & $Attest *> $null } finally { $env:PLAN_ID = $PreviousPlanId }
+}
+
+$Mode = if ($Gated) { "autonomous gate" } elseif ($Autonomous) { "autonomous" } else { "" }
+if ($Mode) {
+    Set-Content -LiteralPath (Join-Path $PlanDir ".mode") -Value $Mode -Encoding ascii
+    Set-Content -LiteralPath (Join-Path $PlanDir ".stop_blocks") -Value "0" -Encoding ascii
+    Set-Content -LiteralPath (Join-Path $PlanDir ".nonce") -Value ([guid]::NewGuid().ToString("N").Substring(0, 16)) -NoNewline -Encoding ascii
+    if (Test-Path -LiteralPath $Attest) {
+        $PreviousPlanId = $env:PLAN_ID
+        $env:PLAN_ID = $PlanId
+        try { & $Attest *> $null } finally { $env:PLAN_ID = $PreviousPlanId }
+    }
+}
+
+Write-Host "Planning workspace initialized: $PlanDir"
+Write-Host "Active plan: $PlanId"
+Write-Host "To pin this session: `$env:PLAN_ID = '$PlanId'"
