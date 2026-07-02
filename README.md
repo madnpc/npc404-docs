@@ -16,6 +16,14 @@
 | `karpathy-guidelines` | 代码改动易过度设计、范围蔓延或需保守审查时：避免过度设计、最小改动、范围控制、明确假设、验收标准、保守审查。 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) |
 | `handoff` | 将未完成工作移交给新的代理或会话：工作交接、上下文交接、任务移交。 | [mattpocock/skills](https://github.com/mattpocock/skills) |
 
+### 在 Claude Code 与 Codex 中通用
+
+技能遵循开放的 Agent Skills 约定（`SKILL.md` + `name`/`description` frontmatter），同一份文件可同时被 Claude Code 与 Codex CLI 加载，无需分叉维护。
+
+- **发现目录**：Claude Code 读取 `~/.claude/skills/` 或项目 `.claude/skills/`；Codex 读取 `~/.codex/skills/` 或项目 `.codex/skills/`。把 `skills/<name>` 软链或复制到对应目录即可（本机经 `~/.cc-switch/skills/` 中转，两端软链同一份副本）。
+- **编写约定**：正文不得硬性依赖单一客户端的专有工具；提及时用举例式表述并给出无此工具时的替代做法（如 DESIGN-IT-TWICE 的子代理并行 vs 顺序产出）。
+- **frontmatter 兼容性**：`name` 与 `description` 是两端共同支持的字段；Claude Code 专有字段（如 `handoff` 的 `argument-hint`、`disable-model-invocation`）会被 Codex 忽略——注意这意味着 `disable-model-invocation` 在 Codex 中不生效，模型可能自主触发该技能。
+
 ### 引用来源
 
 本目录的技能以这些开源项目为参考与改编来源；修改本地版本时，应保留归属并在需要时对照上游更新。
